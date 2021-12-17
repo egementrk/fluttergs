@@ -1,4 +1,10 @@
+// ignore_for_file: sized_box_for_whitespace
+
 import 'package:flutter/material.dart';
+import 'package:fluttergs/route/advance_navigator.dart';
+import 'package:fluttergs/utils/custom_text_style.dart';
+import 'package:fluttergs/widgets/card_widgets.dart';
+import 'package:rive/rive.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,87 +17,64 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: const MyHomePage());
-  }
-}
-
-class ListWidgets extends StatefulWidget {
-  const ListWidgets({Key? key}) : super(key: key);
-
-  @override
-  _ListWidgetsState createState() => _ListWidgetsState();
-}
-
-class _ListWidgetsState extends State<ListWidgets> {
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        padding: const EdgeInsets.all(8),
-        itemCount: entries.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 50,
-            color: Colors.amber[colorCodes[index]],
-            child: Center(child: Text('Entry ${entries[index]}')),
-          );
-        });
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext x, BoxConstraints aralik) {
-        if (aralik.maxWidth > 600) {
-          return _buildWideContainers();
-        } else {
-          return _buildNormalContainer();
-        }
-      },
+      title: 'Flutter GS',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      initialRoute: RouteGenerator.mainPage,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
 
-Widget _buildNormalContainer() {
-  return Center(
-    child: Container(
-      height: 100.0,
-      width: 100.0,
-      color: Colors.red,
-    ),
-  );
+class MainPage extends StatefulWidget {
+  const MainPage({Key? key}) : super(key: key);
+
+  @override
+  _MainPageState createState() => _MainPageState();
 }
 
-Widget _buildWideContainers() {
-  return Center(
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        Container(
-          height: 100.0,
-          width: 100.0,
-          color: Colors.red,
+class _MainPageState extends State<MainPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 2,
+        // ignore: prefer_const_literals_to_create_immutables
+        items: [
+          const BottomNavigationBarItem(icon: Icon(Icons.favorite)),
+          const BottomNavigationBarItem(icon: Icon(Icons.accessibility)),
+        ],
+      ),
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: const Text('Flutter Kamp', style: CustomTextStyle.titleStyle),
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(30)),
+              width: 450,
+              height: 200,
+              child: const RiveAnimation.network(
+                'https://cdn.rive.app/animations/off_road_car_v7.riv',
+              ),
+            ),
+            SizedBox(
+              width: 400,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [CustomCardWidget()],
+              ),
+            ),
+          ],
         ),
-        Container(
-          height: 100.0,
-          width: 100.0,
-          color: Colors.yellow,
-        ),
-      ],
-    ),
-  );
+      ),
+    );
+  }
 }
