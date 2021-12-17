@@ -1,10 +1,10 @@
-// ignore_for_file: sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:fluttergs/route/advance_navigator.dart';
 import 'package:fluttergs/utils/custom_text_style.dart';
+import 'package:fluttergs/widget_samples/unknow_page.dart';
 import 'package:fluttergs/widgets/card_widgets.dart';
-import 'package:rive/rive.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +23,12 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: RouteGenerator.mainPage,
       onGenerateRoute: RouteGenerator.generateRoute,
+
+      /*onUnknownRoute: 
+        
+        (RouteSettings settings) {
+          return MaterialPageRoute(builder: (_) => const UnKnownPage());*
+        }*/
     );
   }
 }
@@ -38,12 +44,16 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        // ignore: prefer_const_literals_to_create_immutables
+        currentIndex: 1,
         items: [
-          const BottomNavigationBarItem(icon: Icon(Icons.favorite)),
-          const BottomNavigationBarItem(icon: Icon(Icons.accessibility)),
+          const BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
+          const BottomNavigationBarItem(
+              icon: Icon(Icons.favorite_border), label: "")
         ],
       ),
       appBar: AppBar(
@@ -55,22 +65,10 @@ class _MainPageState extends State<MainPage> {
       body: Center(
         child: Column(
           children: [
-            Container(
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(30)),
-              width: 450,
-              height: 200,
-              child: const RiveAnimation.network(
-                'https://cdn.rive.app/animations/off_road_car_v7.riv',
-              ),
-            ),
-            SizedBox(
-              width: 400,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const [CustomCardWidget()],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [CustomCardWidget()],
             ),
           ],
         ),

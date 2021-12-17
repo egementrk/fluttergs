@@ -2,14 +2,16 @@ import 'package:fluttergs/route/advance_navigator.dart';
 import 'package:flutter/material.dart';
 
 // ? Button GredientColors
-final List<Color> buttonColors = [Colors.blueGrey, Colors.greenAccent];
+final List<Color> buttonColors = [Colors.orangeAccent, Colors.greenAccent];
 // ? Buttom Title List
 final List<String> buttonTitle = <String>[
   "BoxDecoration",
   "DecorationImage",
   "SliverApp",
   "SliverAppBar",
-  "SliverGrid"
+  "SliverGrid",
+  "SliverList",
+  "Unknown Page"
 ];
 // ? Page Routes List
 final List<dynamic> routeGeneratorList = [
@@ -17,7 +19,9 @@ final List<dynamic> routeGeneratorList = [
   RouteGenerator.decorationImagePage,
   RouteGenerator.sliverApp,
   RouteGenerator.sliverAppBar,
-  RouteGenerator.sliverGrid
+  RouteGenerator.sliverGrid,
+  RouteGenerator.sliverList,
+  RouteGenerator.unKnowPage
 ];
 // ? Images URLs
 

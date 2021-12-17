@@ -1,7 +1,7 @@
 # fluttergs
 
 
-## Widgets and Methods
+## Widgets
 
 []  First of all ! What is Effective Flutter Developer ?
 [x] Boxdecoration
