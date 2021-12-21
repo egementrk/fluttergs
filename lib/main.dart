@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttergs/route/advance_navigator.dart';
 import 'package:fluttergs/utils/custom_text_style.dart';
-import 'package:fluttergs/widget_samples/unknow_page.dart';
+import 'package:fluttergs/widget_samples/custom_painter.dart';
 import 'package:fluttergs/widgets/card_widgets.dart';
 
 void main() {
@@ -12,23 +12,16 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter GS',
+      title: 'Flutter GS12',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       initialRoute: RouteGenerator.mainPage,
       onGenerateRoute: RouteGenerator.generateRoute,
-
-      /*onUnknownRoute: 
-        
-        (RouteSettings settings) {
-          return MaterialPageRoute(builder: (_) => const UnKnownPage());*
-        }*/
     );
   }
 }
@@ -44,19 +37,14 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      primary: true,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.black,
         onPressed: () {},
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 1,
-        items: [
-          const BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ""),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border), label: "")
-        ],
-      ),
       appBar: AppBar(
+        actions: [const ChromeSVG()],
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -64,6 +52,8 @@ class _MainPageState extends State<MainPage> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,

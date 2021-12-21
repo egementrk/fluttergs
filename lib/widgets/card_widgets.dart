@@ -39,6 +39,7 @@ class _CustomCardWidgetState extends State<CustomCardWidget> {
         return Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Icon(Icons.add),
             Padding(
               padding: const EdgeInsets.all(2.0),
               child: GredientButton(

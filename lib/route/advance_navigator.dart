@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttergs/main.dart';
 import 'package:fluttergs/widget_samples/box_decoration.dart';
+import 'package:fluttergs/widget_samples/custom_painter.dart';
 import 'package:fluttergs/widget_samples/decoration_image.dart';
 import 'package:fluttergs/widget_samples/sliver_app.dart';
 import 'package:fluttergs/widget_samples/sliver_app_bar.dart';
@@ -18,6 +19,7 @@ class RouteGenerator {
   static const String sliverGrid = '/SliverGrid';
   static const String sliverList = '/SliverList';
   static const String animatedBG = '/AnimatedBG';
+  static const String svgPainter = '/SvgPainger';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -37,6 +39,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const SliverListAppS());
       case unKnowPage:
         return MaterialPageRoute(builder: (_) => const UnKnownPage());
+      case svgPainter:
+        return MaterialPageRoute(builder: (_) => const SVGPainter());
 
       default:
         throw const FormatException("Route not Found");

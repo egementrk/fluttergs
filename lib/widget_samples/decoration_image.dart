@@ -13,10 +13,17 @@ class _DecorationImageSState extends State<DecorationImageS> {
   Widget build(BuildContext context) {
     return Center(
         child: Container(
-      decoration: const BoxDecoration(
+      width: 300,
+      height: 300,
+      decoration: BoxDecoration(
+          color: Colors.red,
           image: DecorationImage(
-        image: NetworkImage(imageUrl),
-      )),
+            colorFilter: const ColorFilter.linearToSrgbGamma(),
+            centerSlice: Rect.fromCenter(
+                center: const Offset(20, 20), width: 15, height: 15),
+            repeat: ImageRepeat.noRepeat,
+            image: const NetworkImage(imageUrl, scale: 1),
+          )),
     ));
   }
 }

@@ -23,7 +23,7 @@ class _SliveerAppSState extends State<SliveerAppS> {
             pinned: _pinned,
             snap: _snap,
             floating: _floating,
-            expandedHeight: 160.0,
+            expandedHeight: 120.0,
             flexibleSpace: const FlexibleSpaceBar(
               title: Text('SliverAppBar Sample'),
               background: FlutterLogo(),
@@ -41,7 +41,7 @@ class _SliveerAppSState extends State<SliveerAppS> {
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
                 return Container(
-                  color: index.isOdd ? Colors.white : Colors.black12,
+                  color: index.isOdd ? Colors.red : Colors.black12,
                   height: 100.0,
                   child: Center(
                     child: Text('$index', textScaleFactor: 5),

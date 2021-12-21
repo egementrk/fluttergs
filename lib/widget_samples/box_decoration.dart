@@ -14,13 +14,26 @@ class _BoxDecorationSamplesState extends State<BoxDecorationSamples> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            height: 100,
-            width: 100,
-            color: Colors.black,
+          Material(
+            borderRadius: BRCustom(),
+            elevation: 9,
+            child: Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [Colors.black, Colors.blueGrey]),
+                  borderRadius: BRCustom(),
+                  color: Colors.black),
+            ),
           )
         ],
       ),
     );
   }
+
+  // ignore: non_constant_identifier_names
+  BorderRadius BRCustom() => BorderRadius.circular(32.0);
 }
