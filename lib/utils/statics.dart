@@ -29,5 +29,4 @@ final List<dynamic> routeGeneratorList = [
 ];
 // ? Images URLs
 
-const String imageUrl =
-    'https://www.instadp.com/embedded/aHR0cHM6Ly9zY29udGVudC1vcnQyLTEuY2RuaW5zdGFncmFtLmNvbS92L3Q1MS4yODg1LTE5L3MxNTB4MTUwLzE1MTM1NTYyMF84NTAwODI5MzU1NzI2OTNfNTM3MDQ2MDUyNzI4MTM2NTE3X24uanBnP19uY19odD1zY29udGVudC1vcnQyLTEuY2RuaW5zdGFncmFtLmNvbSZfbmNfY2F0PTEwOSZfbmNfb2hjPUpsY0JnX2hHTXNNQVhfcVNiT1gmZWRtPUFLcmFsRUlCQUFBQSZjY2I9Ny00Jm9oPTAwX0FULVYwZkR4RWwwQjNfSm5FR3pSZFVuMzFrSElpNktVa3lXeDgzLWZSSmZtcGcmb2U9NjFDM0U2REEmX25jX3NpZD01ZTMwNzI=.jpg';
+const String imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Google-flutter-logo.svg/449px-Google-flutter-logo.svg.png';
